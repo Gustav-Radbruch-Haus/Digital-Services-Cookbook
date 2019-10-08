@@ -57,10 +57,22 @@ docker run hello-world
 sudo chown -R docker-data:docker-data ORDNERNAME
 ```
 3. Suche für deinen Service eine vordefinierte `docker-compose.yml` Datei. Meistens wird sie vom Service-Entwickler selber bereitgestellt.
-4. Verändere alle vorkommenden Pfade, indem du sie auf `/var/docker/ORDNERNAME` weiterleitest (bspw: `/var/docker/rocketchat/config:/usr/local/config`)
+4. Verändere alle vorkommenden Pfade, indem du sie auf `/var/docker/ORDNERNAME` weiterleitest (bspw: `/var/docker/rocketchat/config:/usr/local/config`). Das machst du am besten in [Atom](https://atom.io) oder einen anderen Editor deiner Wahl.
+
 !> Sollte der Docker-Container dennoch mit `root`-Rechten ausgeführt werden, füge `privileged: true` in die Konfiguration hinzu
+
+5. Erstelle und speichere die `docker-compose.yml` auf dem Server im jeweiligen Ordner:
+```bash
+cd ORDNERNAME
+nano docker-compose.yml
+```
 5. Starte den Docker-Container mit `docker-compose up -d`. Das `-d` ist wichtig, um die Docker-Instanz vom aktuellen Nutzer zu trennen ("detach").
 
-## Tipps und Tricks
+## Troubleshooting
+
+**Q: Einige Services sind down / ich kann nicht auf X zugreifen**
+A: Stoppe zuerst das Docker Compose mit `docker-compose down` und starte es erneut mit `docker-compose up -d`
+
+## Weiterführende Links
 
 - Tipps und Interessantes zu Docker-Sicherheit: <https://towardsdatascience.com/top-20-docker-security-tips-81c41dd06f57>
