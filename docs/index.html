@@ -7,10 +7,14 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </head>
 <body>
   <div id="app">Please wait...</div>
   <script>
+    var num = 0;
+    mermaid.initialize({ startOnLoad: false });
     window.$docsify = {
       name: 'Digital Services Cookbook',
       search: {
@@ -36,9 +40,27 @@
         previousText: 'Einen zurück',
         nextText: 'Als nächstes',
         crossChapter: true
-      }
+      },
+      markdown: {
+       renderer: {
+         code: function(code, lang) {
+           if (lang === "mermaid") {
+             return (
+               '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+             );
+           }
+           return this.origin.code.apply(this, arguments);
+         }
+       }
+     }
     }
   </script>
+  <style>
+    .mermaid {
+      background: white;
+      border-radius: 5px;
+    }
+  </style>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
