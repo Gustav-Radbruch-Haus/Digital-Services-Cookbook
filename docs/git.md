@@ -41,6 +41,11 @@ Für den problemlosen Umgang haben wir folgende Regelnn festgelegt:
   - :heavy_plus_sign: Dependency hinzugefügt `:heavy_plus_sign:`
   - :heavy_minus_sign: Dependency entfernt `:heavy_minus_sign:`
   - :fire: Code oder Dateien entfert `:fire:`
+- Schreibe sinnvolle und nachvollziehbare Commit Messages
+  - Maximal 50 Zeichen
+  - In Präsenz und auf Englisch. Beispiel: `Add new event handler`
+  - Sinhafte Messages. Vermeide Messages wie `try smth`
+- **Führe einen Commit standard ein und behalte ihn bei.** Commits mit Punkt am Ende?
 
 Andere Emojis: <https://gitmoji.carloscuesta.me/>
 
